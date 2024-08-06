@@ -7,8 +7,8 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
-            var myCarLot = new List<CarLot>();
-
+            CarLot myCarLot = new CarLot();
+            myCarLot.VehicleInventory = new List<Car>();
             //TODO
 
             //Create a seperate class file called Car
@@ -18,53 +18,58 @@ namespace CarLotSimulator
 
 
             //Now that the Car class is created we can instanciate 3 new cars
-            var car1 = new Car();
-            var car2 = new Car();
-            var car3 = new Car();
-
             //Set the properties for each of the cars
-            car1.lotID = 1;
+            var car1 = new Car();
+            car1.LotID = 1;
             car1.Year = 2006;
             car1.Make = "Toyota";
             car1.Model = "Corolla";
             car1.EngineNoise = "rum-rum-RUM-RUM-ROOOOOM-ROOOM-RUM-Rum-rum-rum";
             car1.HonkNoise = "Beep-Beep";
             car1.IsDrivable = true;
+            myCarLot.VehicleInventory.Add(car1);
 
-            
-            car2.lotID = 2;
-            car2.Year = 2004;
-            car2.Make = "Chevrolet";
-            car2.Model = "Silverado";
-            car2.EngineNoise = "VVVRUM-VRUM-VRUM-VRUM-VROOOOOM-VROOOM-VRUM-VRum-vrum-vrum";
-            car2.HonkNoise = "HONK-HONK";
-            car2.IsDrivable = true;
+            var car2 = new Car()
+            {
+                LotID = 2,
+                Year = 2004,
+                Make = "Chevrolet",
+                Model = "Silverado",
+                EngineNoise = "VVVRUM-VRUM-VRUM-VRUM-VROOOOOM-VROOOM-VRUM-VRum-vrum-vrum",
+                HonkNoise = "HONK-HONK",
+                IsDrivable = true
+            };
+            myCarLot.VehicleInventory.Add(car2);
+             
+            var car3 = new Car(3, 2013, "Toyota", "Prius", "", "meep-meep", true);
+            myCarLot.VehicleInventory.Add(car3);
 
-            car3.lotID = 3;
-            car3.Year = 2013;
-            car3.Make = "Toyota";
-            car3.Model = "Prius";
-            car3.EngineNoise = "";
-            car3.HonkNoise = "meep-meep";
-            car3.IsDrivable = true;
-
+            for (int i = 0; i <= myCarLot.VehicleInventory.Count - 1; i++)
+            {
+                Console.WriteLine($"LotID: {myCarLot.VehicleInventory[i].LotID}");
+                Console.WriteLine($"Year: {myCarLot.VehicleInventory[i].Year}");
+                Console.WriteLine($"Make: {myCarLot.VehicleInventory[i].Make}");
+                Console.WriteLine($"Mode: {myCarLot.VehicleInventory[i].Model}");
+                Console.WriteLine(Environment.NewLine);
+            }
 
             //Call each of the methods for each car
+            Console.WriteLine($"LotID: {car1.LotID}");
             Console.WriteLine("Engine test: ");
             car1.MakeEngineNoise(car1.EngineNoise);
             Console.WriteLine("Horn test:");
             car1.MakeHornNoise(car1.HonkNoise);
             Console.WriteLine(Environment.NewLine);
 
-
-            Console.WriteLine("Engine test: ");
+            Console.WriteLine($"LotID: {car2.LotID}");
+            Console.WriteLine("Engine test:");
             car2.MakeEngineNoise(car2.EngineNoise);
             Console.WriteLine("Horn test:");
             car2.MakeHornNoise(car2.HonkNoise);
             Console.WriteLine(Environment.NewLine);
 
-
-            Console.WriteLine("Engine test: ");
+            Console.WriteLine($"LotID: {car3.LotID}");
+            Console.WriteLine("Engine test:");
             car3.MakeEngineNoise(car3.EngineNoise);
             Console.WriteLine("Horn test:");
             car3.MakeHornNoise(car3.HonkNoise);

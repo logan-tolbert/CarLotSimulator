@@ -8,7 +8,7 @@ namespace CarLotSimulator
 {
     public class Car
     {
-        public int lotID { get; set; }
+        public int LotID { get; set; }
         public int Year { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
@@ -27,6 +27,33 @@ namespace CarLotSimulator
         {
             Console.WriteLine(HornNoise);
         }
-}
+
+        public Car()
+        {
+
+        }
+
+
+        public Car(
+            int lotid,
+            int year,
+            string make,
+            string model, 
+            string enginenoise,
+            string honknoise,
+            bool isdriveable
+            )
+        {
+            LotID = lotid;
+            Year = year;
+            Make = make;
+            Model = model;
+            EngineNoise = enginenoise;
+            HonkNoise = honknoise;
+            IsDrivable = isdriveable;
+        }
+
+       
+    }
        
 }
