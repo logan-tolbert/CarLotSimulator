@@ -28,6 +28,8 @@ namespace CarLotSimulator
             car1.HonkNoise = "Beep-Beep";
             car1.IsDrivable = true;
             myCarLot.VehicleInventory.Add(car1);
+            Console.WriteLine("Adding vehicle to inventory...");
+            Console.WriteLine($"Vehicles in inventory: {CarLot._numberOfCars}\n");
 
             var car2 = new Car()
             {
@@ -40,9 +42,13 @@ namespace CarLotSimulator
                 IsDrivable = true
             };
             myCarLot.VehicleInventory.Add(car2);
-             
+            Console.WriteLine("Adding vehicle to inventory...");
+            Console.WriteLine($"Vehicles in inventory: {CarLot._numberOfCars}\n");
+
             var car3 = new Car(3, 2013, "Toyota", "Prius", "", "meep-meep", true);
             myCarLot.VehicleInventory.Add(car3);
+            Console.WriteLine("Adding vehicle to inventory...");
+            Console.WriteLine($"Vehicles in inventory: {CarLot._numberOfCars}\n");
 
             for (int i = 0; i <= myCarLot.VehicleInventory.Count - 1; i++)
             {
@@ -51,6 +57,7 @@ namespace CarLotSimulator
                 Console.WriteLine($"Make: {myCarLot.VehicleInventory[i].Make}");
                 Console.WriteLine($"Mode: {myCarLot.VehicleInventory[i].Model}");
                 Console.WriteLine(Environment.NewLine);
+               
             }
 
             //Call each of the methods for each car
